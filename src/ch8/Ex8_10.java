@@ -1,6 +1,7 @@
 package ch8;
 
 import java.io.File;
+import java.io.IOException;
 
 public class Ex8_10 {
     public static void main(String[] args) {
@@ -12,7 +13,7 @@ public class Ex8_10 {
         }
     }
 
-    private static File createFile(String fileName) throws Exception {
+    private static File createFile(String fileName) throws Exception {//여기에 예외를 선언한다고 처리가 되지 않음(여기서 try-catch를 하던가~ 아니면 이 메서드를 받게 되는 메인에서 처리하기)
         if (fileName == null || fileName.equals("")) {
             throw new Exception("파일이름이 유효하지 않습니다.");
         }
@@ -21,6 +22,36 @@ public class Ex8_10 {
         return f;
     }
 }
+
+
+class Ex8_10_2 {
+    public static void main(String[] args) {
+        try {
+            File f = createFile("test.txt");
+            System.out.println(f.getName() + "파일이 성공적으로 생성되었습니다.");
+        } catch (Exception e) {
+            System.out.println(e.getMessage() + "다시 입력해 주시기 바랍니다.");
+        }
+    }
+
+    private static File createFile(String fileName) {//여기에 예외를 선언한다고 처리가 되지 않음(여기서 try-catch를 하던가~ 아니면 이 메서드를 받게 되는 메인에서 처리하기)
+        try {
+            if (fileName == null || fileName.equals("")) {
+                throw new Exception("파일이름이 유효하지 않습니다.");
+            }
+        } catch (Exception e) {
+            fileName = "제목없음";
+        }
+        File f = new File(fileName);
+        try {
+            f.createNewFile();
+        } catch (IOException e) {
+            e.getMessage();
+        }
+        return f;
+    }
+}
+
 
 class tryCatchTest {
     public static void main(String[] args) {
