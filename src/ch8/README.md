@@ -87,8 +87,10 @@ public class ExceptionTest {
 - printStackTrace(): 예외발생 당시의 호출스택(Call Stack)에 있었던 메서드의 정보와 예외 메시지를 화면에 출력한다.
 - getMessage(): 발생한 예외클래스의 인스턴스에 저장된 메시지를 얻을 수 있다.
 <br>
+
 ### 멀티 catch블럭
 - 내용이 같은 catch블럭을 하나로 합친 것(JDK1.7부터)
+
 ```
 try {
 	...
@@ -146,7 +148,7 @@ at ch8.ExceptionText2.main(ExceptionText2.java:6)
 ```
 ---
  ### checked예외, unchecked예외
- -** checked예외**: 컴파일러가 **예외 처리 여부를 체크**(**예외 처리 필수**)
+ -**checked예외**: 컴파일러가 **예외 처리 여부를 체크**(**예외 처리 필수**)
 	 - checked : Exception과 그 자손
 ```
 	public void checkedTest() {  
