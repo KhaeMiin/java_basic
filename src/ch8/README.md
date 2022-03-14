@@ -209,3 +209,28 @@ try{
 ```
 ※ try블럭 안에 return문이 있어서 try블럭을 벗어나갈 때도 finally블럭이 실행된다.
 
+
+
+## 사용자 정의 예외 만들기
+- 우리가 직접 예외 클래스를 정의할 수 있다.
+- 1. 조상은 Exception과 RuntimeException중에서 선택
+- 2. 문자열 매개변수로 받는 생성자를 만든다.
+
+## 예외던지기(exception re-throwing)
+- 예외를 처리한 후에 다시 예외를 발생시키는 것
+- 호출한 메서드와 호출된 메서드 양쪽 모두에서 예외처리하는 것
+- ※ 예외처리가 2번이나 된다. 왜 이렇게 양쪽에서 예외를 처리하는거지..??이해를 하지 못함
+
+## 연결된 예외(chained exception)
+- 한 예외가 다른 예외를 발생시킬 수 있다.
+- 예외 a가 예외 b를 발생시키면, A는 B의 원인 예외(cause exception)
+```
+Throwable initCause(Throwable cause) // 지정한 예외를 원인 예외로 등록
+Throwable getCause() // 원인 예외를 반환
+```
+※ Throwable : Exception과 Error의 조상
+
+- 사용하는 이유
+	- 여러 예외를 하나로 묶어서 다루기 위해서
+
+[▶예제활용해보기 코드 확인](https://github.com/KhaeMiin/java_basic/blob/master/src/ch8/Ex8_18.java#L3)
