@@ -6,7 +6,6 @@ public class Ex8_18 {
             exception1();
         } catch (NumberFormatException e) {
             e.printStackTrace();
-            e.getMessage();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -18,7 +17,7 @@ public class Ex8_18 {
         } catch (ArithmeticException e) {//0 으로 나눌경우 Error //예외A(원인)
             NumberFormatException ne = new NumberFormatException("정수변환 안됨!에러!!");//예외B(새로운 예외에 포함시키기)
             ne.initCause(e);// 지정한 예외를 원인 예외로 등록
-            throw ne; //예외 다시 던지기
+            throw ne; //예외 다시 던지기(예외 발생시킨다)
         } catch (ArrayIndexOutOfBoundsException e) {
             NumberFormatException ne = new NumberFormatException("정수변환 안됨!!에러1");
             ne.initCause(e);//예외 다시 던지기
@@ -30,13 +29,13 @@ public class Ex8_18 {
     static void start() {
 //        throw new ArithmeticException();
         try {
-//            System.out.println(5/0); //1. ArithmeticException 발생시킴
+            System.out.println(5/0); //1. ArithmeticException 발생시킴
 
-            int[] arr=new int[2];// 2. ArrayIndexOutOfBoundsException 발생시킴
-            arr[0]=100;
-            arr[2]=0;
-
-            int a=arr[0]/arr[1];
+//            int[] arr=new int[2];// 2. ArrayIndexOutOfBoundsException 발생시킴
+//            arr[0]=100;
+//            arr[2]=0;
+//
+//            int a=arr[0]/arr[1];
         } catch (ArithmeticException e) {
 //            System.out.println("ArithmeticException 에러 발생!");
             throw e;
@@ -49,3 +48,16 @@ public class Ex8_18 {
 
     }
 }
+
+
+/*
+결과
+java.lang.NumberFormatException: 정수변환 안됨!에러!!
+	at ch8.Ex8_18.exception1(Ex8_18.java:18)
+	at ch8.Ex8_18.main(Ex8_18.java:6)
+Caused by: java.lang.ArithmeticException: / by zero         //원인 예외
+	at ch8.Ex8_18.start(Ex8_18.java:32)
+	at ch8.Ex8_18.exception1(Ex8_18.java:16)
+	... 1 more
+*/
+
