@@ -8,4 +8,7 @@
 
 <br>
 
+### 자바 기초(ch9) - [바로가기](https://github.com/KhaeMiin/java_basic/tree/master/src/ch9)
+
+<br>
 참고 강의: 자바의 정석 Ch6 ~ 
