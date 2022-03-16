@@ -209,7 +209,7 @@ try{
 ```
 ※ try블럭 안에 return문이 있어서 try블럭을 벗어나갈 때도 finally블럭이 실행된다.
 
-
+<br>
 
 ## 사용자 정의 예외 만들기
 - 우리가 직접 예외 클래스를 정의할 수 있다.
@@ -231,6 +231,7 @@ Throwable getCause() // 원인 예외를 반환
 ※ Throwable : Exception과 Error의 조상
 
 - 사용하는 이유
-	- 여러 예외를 하나로 묶어서 다루기 위해서
-
-[▶예제활용해보기 코드 확인](https://github.com/KhaeMiin/java_basic/blob/master/src/ch8/Ex8_18.java#L3)
+	- 여러 예외를 하나로 묶어서 다루기 위해서 <br>
+[예제활용해보기 코드 확인](https://github.com/KhaeMiin/java_basic/blob/master/src/ch8/Ex8_18.java#L3)
+	- checked예외(Exception자손/필수처리)예외를 unchecked(RuntimException자손/선택처리)로 변경하려 할 때 <br>
+	[예제활용해보기 코드 확인](https://github.com/KhaeMiin/java_basic/blob/master/src/ch8/Ex8_18_2.java#L3)
