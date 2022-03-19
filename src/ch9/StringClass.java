@@ -55,7 +55,7 @@ public class StringClass {
         System.out.println("str3를 소문자로 출력:"+str3.toLowerCase());
         System.out.println("str3를 대문자로 출력:"+str3.toUpperCase());
 
-        String a=String.valueOf(100);//int->String
+        String a=String.valueOf(100);//int->String //빈문자열을 더하는 것보다 성능이 빠르다.
         String b=String.valueOf(12.3);//double->String
         String a2=100+"";//+연산 시 String이 있으면 결과는 String
         String b2=12.3+"";
