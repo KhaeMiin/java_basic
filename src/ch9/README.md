@@ -122,3 +122,79 @@ String s3 = "AAA";
 
 ※아래 코드를 확인해주세용<br>
 [String클래스의 메서드 확인하기](https://github.com/KhaeMiin/java_basic/blob/master/src/ch9/StringClass.java#L5)
+
+
+# StringBuffer클래스
+- String처럼 문자형 배열(char[])을 내부적으로 가지고 있다.
+- 그러나 String(내용수정 불가인 불변)과 달리 내용을 변경할 수 있다.(mutable)
+	```
+	StringBuffer sb = new StringBuffer("abc");  
+	sb.append("efg");
+
+	System.out.pintln(sb);
+	//결과: abcefg
+	
+	System.out.println("sb = " + sb); //결과: abcefgZZ  
+	System.out.println("sb2 = " + sb2); //결과: abcefgZZ
+	```
+	- append()는 지정된 내용을 StringBuffer에 추가 후, StringBuffer의 참조를 반환
+
+- 배열은 길이 변경불가. 공간이 부족하면 새로운 배열 생성해야함.
+- StringBuffer는 저장할 문자열이 길이를 고려해서 적절한 크기로 생성해야함
+
+### StringBuffer의 비교
+- StringBuffer는 equals()가 오버라이딩되어있지 않다.(주소비교)
+- StringBuffer을 String으로 변환 후에 equals()로 비교해야한다.
+	```
+	StringBuffer sb = new StringBuffer("abc");  
+	sb.append("efg");  
+
+	StringBuffer sb2 = sb.append("ZZ");  
+	  
+	String a = sb.toString();  
+	String b = sb2.toString();  
+	  
+	System.out.println(a.equals(b));
+	```
+
+# StringBuffer의 생성자와 메서드
+```
+  
+StringBuffer sb = new StringBuffer("01");  
+StringBuffer sb2 = sb.append(23);  
+sb.append('4').append(56);  
+  
+StringBuffer sb3 = sb.append(78);  
+sb3.append(9.0);  
+  
+System.out.println("sb = " + sb); //0123456789.0  
+System.out.println("sb2 = " + sb2); //0123456789.0  
+System.out.println("sb3 = " + sb3); //0123456789.0  
+  
+System.out.println("지정한 인덱스자리부터 내용 지우기 " + sb.deleteCharAt(10)); //01234567890  
+System.out.println("지정한 인덱스자리부터 지정한 인덱스자기까지 지우기" + sb.delete(3, 6)); //01267890  
+System.out.println("지정한 인덱스자리에 새로운 문자열 insert " + sb.insert(3, "abc")); //012abc67890  
+System.out.println("지정한 인덱스자리부터 지정한 end인덱스자리에 새로운 문자열로 바꾸기" + sb.replace(6, sb.length(), "END"));//012abcEND  
+  
+System.out.println("배열길이 = " + sb.capacity()); //18  
+System.out.println("문자길이 = " + sb.length()); //9
+
+
+//결과
+sb = 0123456789.0
+sb2 = 0123456789.0
+sb3 = 0123456789.0
+sb.deleteCharAt(10) = 01234567890
+sb.delete(3, 6) = 01267890
+sb.insert(3, "abc") = insert 012abc67890
+sb.replace(6, sb.length(), "END") = 012abcEND
+sb.capacity() = 18
+sb.length() = 9
+
+Process finished with exit code 0
+
+```
+
+
+
+
